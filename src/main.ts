@@ -105,18 +105,46 @@ todoForm?.appendChild(errorMsg);
 
 const todoManager = new TodoList();
 
+// Ta bort-funktionalitet 
+// Ta bort en specifik todo
+function removeTodo(todoIndex: number): void {
+  const todos = todoManager.getTodos();
+  if (todoIndex >= 0 && todoIndex < todos.length) {
+    todos.splice(todoIndex, 1);
+    localStorage.setItem("todos", JSON.stringify(todos));
+    todoManager.loadFromLocalStorage();
+  }
+}
+
 function renderTodos() {
   if (!todoListElement) return;
   todoListElement.innerHTML = "";
   todoManager.getTodos().forEach((todo, i) => {
     const li = document.createElement("li");
     li.textContent = `${todo.task} (Prio ${todo.priority})`;
+
     if (todo.completed) {
-      li.style.textDecoration = "line-through";
-      li.style.opacity = "0.6";
+      // Skapa en span för texten så vi kan styla den separat
+      const textSpan = document.createElement("span");
+      textSpan.textContent = `${todo.task} (Prio ${todo.priority})`;
+      textSpan.style.textDecoration = "line-through";
+      textSpan.style.opacity = "0.5";
+      li.textContent = ""; 
+      li.appendChild(textSpan);
+
+      // Lägg till kryss-knapp för klara todos
+      const removeBtn = document.createElement("button");
+      removeBtn.textContent = "×";
+      removeBtn.className = "remove-todo-btn";
+      removeBtn.onclick = () => {
+        removeTodo(i);
+        renderTodos();
+      };
+      li.appendChild(removeBtn);
     } else {
       const doneBtn = document.createElement("button");
-      doneBtn.textContent = "Klar";
+      doneBtn.innerHTML = "✓";
+      doneBtn.className = "mark-completed-btn";
       doneBtn.onclick = () => {
         todoManager.markTodoCompleted(i);
         renderTodos();

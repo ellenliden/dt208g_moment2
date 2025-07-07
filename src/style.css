@@ -219,22 +219,47 @@ body {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-#todo-list li button {
-  padding: 0.5rem 1rem;
+#todo-list li .mark-completed-btn {
   background: #48bb78;
   color: white;
   border: none;
-  border-radius: 0.5rem;
-  font-size: 0.875rem;
-  font-weight: 600;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
   transition: all 0.3s ease;
   font-family: "Inter", sans-serif;
+  padding: 0;
+  margin-left: 10px;
 }
 
-#todo-list li button:hover {
+#todo-list li .mark-completed-btn:hover {
   background: #38a169;
   transform: scale(1.05);
+}
+
+/* Kryss-knapp för att ta bort klara todos */
+#todo-list li .remove-todo-btn {
+  background: #e53e3e;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 10px;
+  padding: 0;
+  opacity: 1;
+}
+
+#todo-list li .remove-todo-btn:hover {
+  transform: scale(1.1);
+  background: #c53030;
 }
 
 /* Tablet styling */
