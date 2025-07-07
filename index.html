@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Att göra-lista</title>
+    <link rel="stylesheet" href="/src/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- meny,hamburgermeny-->
+    <nav class="navbar">
+      <div class="container">
+        <a href="#" class="logo">TO DO</a>
+        <button
+          class="hamburger"
+          aria-label="Öppna meny"
+          aria-expanded="false"
+          aria-controls="nav-links"
+          type="button"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#">Hem</a></li>
+          <li><a href="#">Om</a></li>
+        </ul>
+      </div>
+    </nav>
+    <main class="main-content">
+      <!-- Todo-appens innehåll kommer här -->
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2025 ELLENS TO DO LIST</p>
+      </div>
+    </footer>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
