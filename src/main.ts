@@ -105,7 +105,7 @@ todoForm?.appendChild(errorMsg);
 
 const todoManager = new TodoList();
 
-// Ta bort-funktionalitet 
+// Ta bort-funktionalitet
 // Ta bort en specifik todo
 function removeTodo(todoIndex: number): void {
   const todos = todoManager.getTodos();
@@ -129,7 +129,7 @@ function renderTodos() {
       textSpan.textContent = `${todo.task} (Prio ${todo.priority})`;
       textSpan.style.textDecoration = "line-through";
       textSpan.style.opacity = "0.5";
-      li.textContent = ""; 
+      li.textContent = "";
       li.appendChild(textSpan);
 
       // Lägg till kryss-knapp för klara todos
